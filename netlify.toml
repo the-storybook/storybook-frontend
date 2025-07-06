@@ -1,20 +1,13 @@
 [build]
   command = "npm run build"
-  # This directory holds your static assets (JS, CSS, images)
-  # It seems from your output, TanStack Start puts these in .output/public,
-  # OR if you are sure about the .tanstack/start/build/client-dist, use that.
-  # Let's use .output/public as it was consistent with previous debugging.
-  publish = "/.tanstack/start/build/client-dist/" 
+  publish = ".output/public" # Keep this as .output/public (assuming static assets are here)
 
 [functions]
-  # This tells Netlify where your server-side function (compiled by Nitro/Vite) is.
-  # This is the entry point for your SSR application.
-  directory = ".output/server" 
+  # CHANGE THIS: Point directly to the folder containing index.mjs
+  directory = ".output/server/chunk" 
 
 [[redirects]]
   from = "/*"
-  # This redirects ALL incoming requests to your deployed serverless function.
-  # Netlify automatically names the main function "server" when deploying from the functions directory.
-  to = "/.netlify/functions/server" 
+  to = "/.netlify/functions/server"
   status = 200
-  force = true # Ensures this redirect takes precedence over static files
+  force = true
