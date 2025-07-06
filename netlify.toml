@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = ".output/public" # Keep this as .output/public (assuming static assets are here)
+  publish = "/.tanstack/start/build/client-dist/" # Keep this as .output/public (assuming static assets are here)
 
 [functions]
   # CHANGE THIS: Point directly to the folder containing index.mjs
