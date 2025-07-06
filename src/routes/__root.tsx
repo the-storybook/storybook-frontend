@@ -5,16 +5,15 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-import Header from "../components/navbar.tsx";
-
+import "./styles.css";
 import TanStackQueryLayout from "../integrations/tanstack-query/layout.tsx";
 
 import appCss from "../styles.css?url";
 
+import Footer from "@/components/footer.tsx";
+import { ThemeProvider } from "@/components/theme-provider.tsx";
 import type { QueryClient } from "@tanstack/react-query";
 import Navbar from "../components/navbar.tsx";
-import { ThemeProvider } from "@/components/theme-provider.tsx";
-import Footer from "@/components/footer.tsx";
 
 interface MyRouterContext {
 	queryClient: QueryClient;
