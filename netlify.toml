@@ -4,7 +4,7 @@
   # It seems from your output, TanStack Start puts these in .output/public,
   # OR if you are sure about the .tanstack/start/build/client-dist, use that.
   # Let's use .output/public as it was consistent with previous debugging.
-  publish = ".output/public" 
+  publish = "/.tanstack/start/build/client-dist/" 
 
 [functions]
   # This tells Netlify where your server-side function (compiled by Nitro/Vite) is.
