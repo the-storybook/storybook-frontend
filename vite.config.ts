@@ -6,9 +6,13 @@ import tailwindcss from '@tailwindcss/vite'
 import { wrapVinxiConfigWithSentry } from '@sentry/tanstackstart-react'
 
 const config = defineConfig({
-  base: '/',
+ base: '/',
   build: {
     outDir: '.tanstack/start/build/client-dist',
+    manifest: true, // important for asset resolution
+    rollupOptions: {
+      input: './src/entry-client.tsx', // adjust to your actual client entry file
+    },
   },
   plugins: [
     // this is the plugin that enables path aliases
