@@ -25,15 +25,28 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Lora } from "next/font/google";
+
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+});
 
 const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8).max(100),
+  email: z.email("Invalid email address"),
+  password: z
+    .string()
+    .min(8, "Password must be atleast 8 characters long")
+    .max(100, "Password must have less than 100 characters"),
 });
 
 const LoginPage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -41,13 +54,12 @@ const LoginPage = () => {
   }
 
   return (
-    <div>
-      <Card className="md:w-[600px] w-full">
-        <CardHeader className="text-center">
-          <CardTitle>Login</CardTitle>
+    <div className="flex h-full w-full flex-col items-center justify-center">
+      <Card className="w-full md:w-[600px]">
+        <CardHeader className="text-center border-b">
+          <CardTitle className={lora.className}>Login</CardTitle>
           <CardDescription>Make your stories a reality</CardDescription>
         </CardHeader>
-        <Separator />
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -58,7 +70,7 @@ const LoginPage = () => {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input {...field} type="email" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -71,7 +83,7 @@ const LoginPage = () => {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input {...field} type="password" />
                     </FormControl>
                     <FormMessage />
                     <FormDescription className="text-right">
@@ -93,7 +105,7 @@ const LoginPage = () => {
           </Form>
         </CardContent>
         <CardFooter>
-          <p className="text-center w-full">
+          <p className="w-full text-center">
             Don't have an account?{" "}
             <Link
               href="/signup"

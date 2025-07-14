@@ -1,4 +1,5 @@
-import AuthNavbar from "@/components/auth-navbar";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 
 export default function RootLayout({
   children,
@@ -7,8 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      <AuthNavbar />
-      <div className="flex w-full flex-1 items-center">{children}</div>
+      <Navbar />
+      <div className="w-full flex-1">{children}</div>
+      <Footer />
     </div>
   );
 }

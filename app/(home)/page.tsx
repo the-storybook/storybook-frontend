@@ -1,11 +1,9 @@
 "use client";
-
-import { ModeToggle } from "@/components/mode-toggle";
 import { redirect } from "next/navigation";
 import React, { useEffect } from "react";
 
 const Home = () => {
-  const isAutnenticated = false;
+  const isAutnenticated = true;
 
   useEffect(() => {
     if (!isAutnenticated) {
@@ -14,8 +12,8 @@ const Home = () => {
   }, [isAutnenticated]);
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <h1 className="text-7xl">Welcome User!</h1> <ModeToggle />
+    <div className="flex items-center justify-center">
+      <h1 className="text-7xl">Welcome User!</h1>
     </div>
   );
 };
