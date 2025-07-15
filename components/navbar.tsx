@@ -38,7 +38,7 @@ const Navbar = () => {
         <Link href="/" className="text-lg font-semibold hover:underline">
           My Stories
         </Link>
-        <Link href="/" className="text-lg font-semibold hover:underline">
+        <Link href="/explore" className="text-lg font-semibold hover:underline">
           Explore Stories
         </Link>
         <Link href="/" className="text-lg font-semibold hover:underline">
