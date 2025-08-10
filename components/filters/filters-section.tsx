@@ -16,7 +16,7 @@ const FiltersSection = () => {
       <SelectDateRange />
       <Button>
         <CircleXIcon className="mr-1" />
-        CLear Filters
+        Clear Filters
       </Button>
     </div>
   );
