@@ -1,11 +1,12 @@
 import { EyeIcon, HeartIcon, ListIcon } from "lucide-react";
 import React from "react";
 import { Badge } from "../ui/badge";
+import Image from "next/image";
 
 interface StoryCardProps {
   imageUrl?: string;
-  title: String;
-  author: String;
+  title: string;
+  author: string;
   tags?: string[];
   description?: string;
   views?: string;
@@ -17,7 +18,7 @@ const StoryCard = (props: StoryCardProps) => {
   return (
     <div className="flex max-w-[80%] flex-col items-center justify-center gap-2 border-b pb-4">
       <div className="flex items-center">
-        <img
+        <Image
           src={props.imageUrl || "/default-image.jpg"}
           alt="Story Thumbnail"
           className="aspect-16/25 h-[250px] w-[160px] object-cover"

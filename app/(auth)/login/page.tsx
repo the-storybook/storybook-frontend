@@ -17,7 +17,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Separator } from "@radix-ui/react-context-menu";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -106,7 +105,7 @@ const LoginPage = () => {
         </CardContent>
         <CardFooter>
           <p className="w-full text-center">
-            Don't have an account?{" "}
+            Don&apos;t have an account?&nbsp;
             <Link
               href="/signup"
               className="text-primary hover:underline hover:opacity-80"
